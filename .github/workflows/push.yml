@@ -1,0 +1,42 @@
+name: Combined Workflows on Pull Request
+
+on:
+  pull_request:
+
+jobs:
+  auto-merge-dependabot:
+    name: dependabot
+    runs-on: ubuntu-20.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4.1.2
+      - uses: ahmadnassri/action-dependabot-auto-merge@v2.6.6
+        if: github.actor == 'dependabot[bot]'
+        with:
+          target: minor
+          github-token: ${{ secrets.GH_TOKEN_WRITE }}
+
+  commit-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: wagoid/commitlint-github-action@v6
+
+  eslint-fix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint Fix
+        uses: getsentry/action-eslint-fix@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
