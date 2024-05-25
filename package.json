@@ -1,0 +1,47 @@
+{
+  "name": "template-node-express-pgsql-sequelize",
+  "version": "1.0.0",
+  "description": "Dockerized Boiler plate code for starting a node microservice with express as middleware, pgsql database connected with sequelize ORM with end to end testing",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/index.js",
+    "build": "rimraf dist && tsc --build",
+    "dev": "nodemon src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rutvij26/template-node-express-pgsql-sequelize.git"
+  },
+  "keywords": [
+    "typescript",
+    "node",
+    "express",
+    "sequelize",
+    "postgresql",
+    "docker",
+    "microservice",
+    "boilerplate",
+    "template",
+    "Makefile",
+    "node:test"
+  ],
+  "author": "Rutvij Sathe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rutvij26/template-node-express-pgsql-sequelize/issues"
+  },
+  "homepage": "https://github.com/rutvij26/template-node-express-pgsql-sequelize#readme",
+  "devDependencies": {
+    "@types/node": "^20.12.12",
+    "@typescript-eslint/eslint-plugin": "^7.10.0",
+    "@typescript-eslint/parser": "^7.10.0",
+    "eslint": "^8.57.0",
+    "nodemon": "^3.1.1",
+    "rimraf": "^5.0.7",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.11.0",
+    "typescript": "^5.4.5"
+  }
+}
