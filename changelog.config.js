@@ -1,12 +1,16 @@
 module.exports = {
     disableEmoji: true,
     format: '{type}{scope}: {subject}',
-    list: ['test', 'feat', 'fix', 'chore', 'docs', 'refactor', 'style', 'ci', 'perf'],
+    list: ['test', 'feat', 'fix', 'chore', 'docs', 'refactor', 'style', 'ci', 'perf', 'wip'],
     maxMessageLength: 64,
     minMessageLength: 3,
     questions: ['type', 'scope', 'subject', 'body', 'breaking', 'issues', 'lerna'],
     scopes: [],
     types: {
+        wip: {
+            description: 'Work in progress',
+            value: 'wip'
+        },
         chore: {
             description: 'Build process or auxiliary tool changes',
             value: 'chore'
